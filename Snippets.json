@@ -1,0 +1,61 @@
+{
+	
+	"Get request": {
+		"scope": "javascript,typescript",
+		"prefix": "get",
+		"body": [
+			"app.get('/$1',(req,res)=>{",
+			"   rs.render('$2')",
+			"})"
+		],
+		"description": "Get request Snippets"
+	},
+
+  
+	//======================Post request====================
+	"Post request": {
+		"scope": "javascript,typescript",
+		"prefix": "post",
+		"body": [
+			"app.post('/$1',urlencodedParser,(req,res)=>{",
+			"    console.log(req.body)",
+			"    res.send('found')",
+			"})"
+		],
+		"description": "Post request Snippets"
+	},
+
+  
+	//======================Fetch====================
+	"Fetch API Snippets": {
+		"scope": "javascript,typescript",
+		"prefix": "fetch",
+		"body": [
+			
+			"//====================get data===================",
+			"//const files = document.querySelector('input[type=`file`]').files;",
+			"let test_data = 'Numan';",
+			" ",
+			"//==============Set into formData================",
+			"const form = new FormData()",
+			"form.append('test_data', test_data)",
+			"//data.append('picture', files[0]);",
+			" ",
+			" ",
+			"//==============Finally send the data===========",
+			"let url = '/$1'",
+			"fetch(url, {",
+			"   method: 'post',",
+			"   body: form,",
+			"})",
+			"   .then(response => { return response.json() })",
+			"   .then(data => { console.log(data) })",
+			"   .catch(err => { console.error(err) })",
+			
+		],
+		"description": "Fetch API"
+	},
+}
+
+
+
