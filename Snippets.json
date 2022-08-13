@@ -1,5 +1,5 @@
 {
-	
+	//======================get request====================
 	"Get request": {
 		"scope": "javascript,typescript",
 		"prefix": "get",
