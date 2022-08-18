@@ -1,17 +1,18 @@
 {
-	//======================get request====================
+	
 	"Get request": {
 		"scope": "javascript,typescript",
 		"prefix": "get",
 		"body": [
 			"app.get('/$1',(req,res)=>{",
 			"   rs.render('$2')",
-			"})"
+			"})",
+			" ",
+			" ",
 		],
 		"description": "Get request Snippets"
 	},
 
-  
 	//======================Post request====================
 	"Post request": {
 		"scope": "javascript,typescript",
@@ -20,12 +21,13 @@
 			"app.post('/$1',urlencodedParser,(req,res)=>{",
 			"    console.log(req.body)",
 			"    res.send('found')",
-			"})"
+			"})",
+			" ",
+			" ",
 		],
 		"description": "Post request Snippets"
 	},
 
-  
 	//======================Fetch====================
 	"Fetch API Snippets": {
 		"scope": "javascript,typescript",
@@ -51,10 +53,102 @@
 			"   .then(response => { return response.json() })",
 			"   .then(data => { console.log(data) })",
 			"   .catch(err => { console.error(err) })",
+			" ",
+			" ",
 			
 		],
 		"description": "Fetch API"
 	},
+
+	//======================MongooseServer====================
+	"mongooseServer API Snippets": {
+		"scope": "javascript,typescript",
+		"prefix": "mongooseServerConnect",
+		"body": [
+			"//NOTE:Create .env file and put here mongoose server url ",
+			"//Like that:: DATABASE=mongodb+srv://kay:RealPassword@cluster0.rrlbs.mongodb.net/databaseFolder",
+			"//========================================================================================",
+			"//                                database",
+			"//========================================================================================",
+			"mongoose",
+			".connect(process.env.DATABASE, {",
+			"   useNewUrlParser: true,",
+			"   useUnifiedTopology: true",
+			"})",
+			"var db = mongoose.connection;",
+			"db.on('error', console.error.bind(console, 'MongoDB connection error:'));",
+			"db.once('open', function () {",
+			"console.log('MongoDB database connection successfully');",
+			"});",
+			" ", 
+			" ", 
+			" ", 
+			"//========================================================================================",
+			"//                                 Data base schema",
+			"//========================================================================================",
+			"let schema = new mongoose.Schema(",
+			"{",
+			"   name: String,",
+			"   phone: String,",
+			"   gmail: String,",
+			"   img: String,",
+			"}",
+			");",
+			" ", 
+			" ", 
+			"//========================================================================================",
+			"//                                    Data Model",
+			"//========================================================================================",
+			"let model = mongoose.model('database_folder_name', schema);",
+			" ",
+			" ",
+		],
+		"description": "mongooseServerConnect"
+	},
+	//======================Mongoose Manual====================
+	"mongooseManual API Snippets": {
+		"scope": "javascript,typescript",
+		"prefix": "mongooseManualConnect",
+		"body": [
+			"//Use this if you don't have any cloud Database ",
+			"//NOTE:: Install mongobd on your pc or server and create a folder in c drive 'data/db'",
+			"//========================================================================================",
+            "//                                database",
+			"//========================================================================================",
+			"mongoose.connect('mongodb://localhost/folder1',{useNewUrlParser: true, useUnifiedTopology: true})",
+			"var db = mongoose.connection;",
+			"db.on('error', console.error.bind(console, 'MongoDB connection error:'));",
+			"db.once('open', function() {",
+			"console.log('MongoDB database connection successfully');",
+			"});",
+			" ",
+			" ",
+			" ",
+			"//========================================================================================",
+			"//                                 Data base schema",
+			"//========================================================================================",
+			"let schema = new mongoose.Schema(",
+			"{",
+			"   name: String,",
+			"   phone: String,",
+			"   gmail: String,",
+			"   img: String,",
+			"}",
+			");",
+			" ",
+			" ",
+			"//========================================================================================",
+			"//                                    Data Model",
+			"//========================================================================================",
+			"let model = mongoose.model('database_folder_name', schema);",
+			" ",
+			" ",
+		],
+		"description": "mongooseManualConnect"
+	},
+
+
+
 }
 
 
