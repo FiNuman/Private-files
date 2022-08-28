@@ -1,5 +1,5 @@
 {
-	
+	//======================get request====================
 	"Get request": {
 		"scope": "javascript,typescript",
 		"prefix": "get",
@@ -181,6 +181,29 @@
 		],
 		"description": "Multer file save using 'Storage and Filter'"
 	},
+	//======================get request====================
+	"DomparserToAddNewHtmlFile": {
+		"scope": "javascript,typescript",
+		"prefix": "Domparser To add new html file",
+		"body": [
+			"let parser = new DOMParser();",
+			"let doc = parser.parseFromString(html, "text/html");",
+			" ",
+			" ",
+		],
+		"description": "Domparser"
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	    
+
+    
 
 
 
