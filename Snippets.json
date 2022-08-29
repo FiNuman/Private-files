@@ -181,13 +181,13 @@
 		],
 		"description": "Multer file save using 'Storage and Filter'"
 	},
-	//======================get request====================
+	//======================Domparser====================
 	"DomparserToAddNewHtmlFile": {
 		"scope": "javascript,typescript",
 		"prefix": "Domparser To add new html file",
 		"body": [
 			"let parser = new DOMParser();",
-			"let doc = parser.parseFromString(html, "text/html");",
+			"let doc = parser.parseFromString(html, 'text/html');",
 			" ",
 			" ",
 		],
