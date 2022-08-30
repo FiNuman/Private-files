@@ -186,9 +186,20 @@
 		"scope": "javascript,typescript",
 		"prefix": "Domparser To add new html file",
 		"body": [
+			" ",
+			" ",
 			"let parser = new DOMParser();",
 			"let doc = parser.parseFromString(html, 'text/html');",
+			"document.body.appendChild(doc.getElementById('id1'));//Append HTML file",
+			"// $('head').append(doc.getElementsByTagName('script'));//Append new js file",
+			"//  note:: if want to use this add a cdn file jquery 1.8.3 ",
+			"// script:: src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js' integrity='sha512-J9QfbPuFlqGD2CYVCa6zn8/7PEgZnGpM5qtFOBZgwujjDnG5w5Fjx46YzqvIh/ORstcj7luStvvIHkisQi5SKw==' crossorigin='anonymous' referrerpolicy='no-referrer'",
 			" ",
+			" ",
+			"let script = document.createElement('script')//Manually Appen new js file ",
+			"script.type='text/javascript'",
+			"script.textContent = doc.getElementsByTagName('script')[0].innerHTML",
+			"$('head')[0].append(sc)",
 			" ",
 		],
 		"description": "Domparser"
@@ -196,9 +207,7 @@
 	
 	
 	
-	
-	
-	
+
 	
 	
 	    
