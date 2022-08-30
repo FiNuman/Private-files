@@ -202,7 +202,7 @@
 			"$('head')[0].append(sc)",
 			" ",
 		],
-		"description": "Domparser"
+		"description": "This code for add new html,js,css file by domparser from fetch"
 	},
 	
 	
