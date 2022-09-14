@@ -1,20 +1,20 @@
 {
 	//======================get request====================
-	"Get request": {
+	"Get request Snippets": {
 		"scope": "javascript,typescript",
 		"prefix": "get",
 		"body": [
 			"app.get('/$1',(req,res)=>{",
-			"   rs.render('$2')",
+			"   res.render('$2')",
 			"})",
 			" ",
 			" ",
 		],
-		"description": "Get request Snippets"
+		"description": "Simple Get request Snippets"
 	},
 
 	//======================Post request====================
-	"Post request": {
+	"Post request Snippets": {
 		"scope": "javascript,typescript",
 		"prefix": "post",
 		"body": [
@@ -25,7 +25,7 @@
 			" ",
 			" ",
 		],
-		"description": "Post request Snippets"
+		"description": "Simple Post request Snippets"
 	},
 
 	//======================Fetch====================
@@ -179,43 +179,207 @@
 			" ",
 			" ",
 		],
-		"description": "Multer file save using 'Storage and Filter'"
+		"description": "Multer mainly use for file saving."
 	},
 	//======================Domparser====================
-	"DomparserToAddNewHtmlFile": {
+	"Domparser Snippets": {
 		"scope": "javascript,typescript",
-		"prefix": "Domparser To add new html file",
+		"prefix": "Domparser",
 		"body": [
-			" ",
-			" ",
 			"let parser = new DOMParser();",
-			"let doc = parser.parseFromString(html, 'text/html');",
-			"document.body.appendChild(doc.getElementById('id1'));//Append HTML file",
-			"// $('head').append(doc.getElementsByTagName('script'));//Append new js file",
-			"//  note:: if want to use this then add a cdn jquery 1.8.3 file to the html",
-			"// script:: src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js' integrity='sha512-J9QfbPuFlqGD2CYVCa6zn8/7PEgZnGpM5qtFOBZgwujjDnG5w5Fjx46YzqvIh/ORstcj7luStvvIHkisQi5SKw==' crossorigin='anonymous' referrerpolicy='no-referrer'",
+			"let doc = parser.parseFromString(${1:Plain-HTML}, 'text/html');//gave here string html file",
+			"document.body.appendChild(doc.getElementById('${2:container_div_ID}'));//Append HTML file to the browser",
+         	"$('head').append(doc.getElementsByTagName('script'));//Append new js file to the browser",
+            "//  note:: if you want to use this then add a cdn jquery file 1.8.3 to the html",
+            "// script:: src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js' integrity='sha512-J9QfbPuFlqGD2CYVCa6zn8/7PEgZnGpM5qtFOBZgwujjDnG5w5Fjx46YzqvIh/ORstcj7luStvvIHkisQi5SKw==' crossorigin='anonymous' referrerpolicy='no-referrer'",
 			" ",
-			" ",
-			"let script = document.createElement('script')//Manually Appen new js file ",
-			"script.type='text/javascript'",
-			"script.textContent = doc.getElementsByTagName('script')[0].innerHTML",
-			"$('head')[0].append(sc)",
 			" ",
 		],
-		"description": "This code for add new html,js,css file by domparser from fetch"
+		"description": "Domparser"
 	},
-	
-	
-	
+	//======================Domparser with settimeout====================
+	"Domparser settimeout Snippets": {
+		"scope": "javascript,typescript",
+		"prefix": "Domparser settimeout",
+		"body": [
+			"setTimeout(() => {",
+			"    let script2 = document.createElement('script')",
+			"    script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js'",
+			"    $('head')[0].append(script2)",
+			"    script2.addEventListener('load', () => {} )",
+			" }, 0);",
+			"",
+			" setTimeout(() => {",
+			"    let parser = new DOMParser();",
+			"    let doc = parser.parseFromString(${1:Plain-HTML}, 'text/html');//gave here string html file",
+			"    document.body.appendChild(doc.getElementById('${2:container_div_ID}'));//Append HTML file to the browser",
+			"    $('head').append(doc.getElementsByTagName('script'));//Append new js file to the browser",
+			" }, 100);",
+			" ",
+			" ",
+		],
+		"description": "This functions automatically load the require jQuery file from the web and then load your js from the parser"
+	},
 
-	
-	
-	    
+	//======================Domparser request====================
+	"Domparser Manual Snippets": {
+		"scope": "javascript,typescript",
+		"prefix": "Domparser Manual",
+		"body": [
+			"//Domparser to convert text html to dcument html",
+			"let parser = new DOMParser();",
+			"let doc = parser.parseFromString(${1:Plain-HTML}, 'text/html');",
+   			"",
+			"//Add new thing from the requested html to web page",
+			"document.body.appendChild(doc.getElementById('${2:container_div_ID}'));",
+			"",
+			"//manually add script",
+			"var tmpScripts = doc.getElementsByTagName('script');",
+			"    for (var i = 0; i < tmpScripts.length; i++) {",
+			"        if(doc.getElementsByTagName('script')[i]){",
+  			"",
+			"        if (doc.getElementsByTagName('script')[i].src) {//Manually Append new js file with src",
+			"            let script2 = document.createElement('script') ",
+			"            script2.src = doc.getElementsByTagName('script')[i].src",	 
+			"            $('head')[0].append(script2)",			
+   
+			"        } else {",
+			"           let script = document.createElement('script')//Manually Append new js file without src",
+			"           script.type = 'text/javascript'",
+			"           script.textContent = doc.getElementsByTagName('script')[i].innerHTML",
+			"           $('head')[0].append(script)",
+			"           }",
+			"       }",
+			"   }",
+   
+			" ",
+			" ",
+		],
+		"description": "Manually added javaScript from the parser"
+	},
 
-    
 
+	//======================Bcrypt====================
+	"Bcrypt Snippets ": {
+		"scope": "javascript,typescript",
+		"prefix": "Bcrypt",
+		"body": [
+			" ",
+			"const bcrypt = require('bcrypt');",
+            "const saltRounds = 10;",
+			" ",
+            "bcrypt.hash('${1:password}', saltRounds, function (err, encode_password) {",
+			"    console.log(encode_password)//store your password in db",
+            "});",
+            "",
+            "",
+			"//this part compare between your string password and your encoded password",
+            "bcrypt.compare('${2:password}', ${3:encode_password}, function (err, result) {",
+            "    if (err) console.log('Get err')",
+            "    else {",
+            "        if (result == true) {",
+            "            console.log('match')",
+            "        } else console.log('wrong')",
+            "    }",
+            "});",
+			" ",
+			" ",
+		],
+		"description": "Password encode with Bcrypt"
+	},
 
-
+	//======================cluster====================
+	"Cluster Snippets": {
+		"scope": "javascript,typescript",
+		"prefix": "cluster",
+		"body": [
+			"//========================================================================================",
+                  "//                                Server start with cluster",
+                  "//========================================================================================",
+			" ",
+			"if (cluster.isMaster) {",
+			"    console.log(`Master ${process.pid} is running`);",
+			"",
+			"    // Fork workers.",
+			"    for (let i = 0; i < numCPUs; i++) {",
+			"        cluster.fork();",
+			"    }",
+			"",
+			"    cluster.on('exit', (worker, code, signal) => {",
+			"        console.log(`worker ${worker.process.pid} died`);",
+			"        cluster.fork();",
+			"   });",
+			"} else {",
+			"    app.listen(process.env.PORT || 80, () => {",
+			"        console.log(`Running ` + process.pid);",
+			"   })",
+			"}",
+			" ",
+			" ",
+		],
+		"description": "Cluster module allows you to easily create child processes that each runs on their own single thread, to handle the load."
+	},
+	//======================JWT====================
+	"JWT Snippets": {
+		"scope": "javascript,typescript",
+		"prefix": "JWT",
+		"body": [
+			" ",
+			"let jwt = require('jsonwebtoken')",
+			"let User_data = {",
+			"   name:'numan',",
+			"   pass:'$2b$10$mWGsHZdpxm1GuBqjCNkDauYP24LV5kqCYHHUfWgMlxjoSKWeVqkoe'",
+			"}",
+			"",
+			"",
+			"let creat_token = () => {",
+			"    //vreify token",
+			"    let token = jwt.sign(User_data, process.env.jwt_key, { expiresIn: '2 minute' });",
+			"    console.log(token)",
+			"",
+			"    //vreify token",
+			"    let verify_token = jwt.verify(token, process.env.jwt_key)",
+			"    console.log(verify_token)",
+			"}",
+			"creat_token()",
+			" ",
+			" ",
+		],
+		"description": "JWT is used for stateless authentication mechanisms for users and providers, this means maintaining session is on the client-side instead of storing sessions on the server"
+	},
+	//======================Http====================
+	"http Snippet": {
+		"scope": "javascript,typescript",
+		"prefix": "http",
+		"body": [
+			" ",
+			"const requestListener = function (req, res) {",
+			"    console.log(req.url)",
+			"    switch (req.url) {",
+			"        case '/':",
+			"            let html = fs.readFileSync(__dirname+'/${1:html file path}')",
+			"            res.end(html)",
+			"            break",
+			"        case '/${2:address}':",
+			"            $3",
+			"            res.end('')",
+			"            break",
+			"        default :",
+			"            res.writeHead(200);",
+			"            res.end('404 file not found');",
+			"            break",
+			"    }",
+			"};",
+			"",
+			"var server = http.createServer(requestListener);",
+			"server.listen(8000, () => {",
+			"    console.log('surver started')",
+			"});",
+			" ",
+			" ",
+		],
+		"description": "Http module to creat server"
+	},
 }
 
 
