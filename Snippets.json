@@ -221,7 +221,7 @@
 		"description": "This functions automatically load the require jQuery file from the web and then load your js from the parser"
 	},
 
-	//======================Domparser request====================
+	//======================Domparser Manual====================
 	"Domparser Manual Snippets": {
 		"scope": "javascript,typescript",
 		"prefix": "Domparser Manual",
